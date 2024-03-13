@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1708187390061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1708187390061,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport \"./styles/color.css\";\nimport \"./styles/font.css\";\nimport ReactDOM from \"react-dom\";\nimport App from \"./App\";\nimport \"./styles/index.css\";\nimport \"./styles/tailwind.css\";\nReactDOM.render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>,\n  document.getElementById(\"root\"),\n);\n"
+        }
+    ]
+}

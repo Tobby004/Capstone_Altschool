@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/Login.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1708191099614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1708191099614,
+            "name": "Commit-0",
+            "content": "// src/components/Login.jsx\nimport React, { useState } from 'react';\nimport { useNavigate } from 'react-router-dom';\nimport { signInWithEmailAndPassword } from 'firebase/auth';\nimport { auth } from '../firebaseConfig'; // Adjust the import path as necessary\n\nconst Login = () => {\n  const [email, setEmail] = useState('');\n  const [password, setPassword] = useState('');\n  const navigate = useNavigate();\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    try {\n      await signInWithEmailAndPassword(auth, email, password);\n      navigate('/'); // Navigate to homepage on successful login\n    } catch (error) {\n      console.error(error);\n    }\n  };\n\n  return (\n    <div>\n      <h2>Login</h2>\n      <form onSubmit={handleSubmit}>\n        <input type=\"email\" value={email} onChange={(e) => setEmail(e.target.value)} placeholder=\"Email\" required />\n        <input type=\"password\" value={password} onChange={(e) => setPassword(e.target.value)} placeholder=\"Password\" required />\n        <button type=\"submit\">Login</button>\n      </form>\n    </div>\n  );\n};\n\nexport default Login;\n"
+        }
+    ]
+}

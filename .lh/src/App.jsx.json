@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1708176437838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1708176453806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-// src/App.js\n+\n import React from 'react';\n import AppRoutes from './Routes';\n \n function App() {\n"
+                }
+            ],
+            "date": 1708176437838,
+            "name": "Commit-0",
+            "content": "// src/App.js\nimport React from 'react';\nimport AppRoutes from './Routes';\n\nfunction App() {\n  return <AppRoutes />;\n}\n\nexport default App;\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/styles/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1708095070724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1708095094527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n body {\n   font-family: \"Roboto\", sans-serif !important;\n   margin: 0;\n   padding: 0;\n- {\n+}\n+\n+table {\n   border-spacing: 0;\n   width: 100%;\n }\n .common-select {\n"
+                }
+            ],
+            "date": 1708095070723,
+            "name": "Commit-0",
+            "content": "* {\n  box-sizing: border-box;\n  line-height: normal;\n}\nbody {\n  font-family: \"Roboto\", sans-serif !important;\n  margin: 0;\n  padding: 0;\n {\n  border-spacing: 0;\n  width: 100%;\n}\n.common-select {\n  z-index: 10000;\n}\n.react-datepicker-popper {\n  z-index: 100000 !important;\n}\n.drawable-icon{\n  position: absolute;\n  margin: auto;\n  z-index: 1000;\n}\n.input-wrap{\n  position: relative;\n}\noption{\n  color: #000;\n}\n.table-wrap{\n  overflow: auto;\n}\ninput:focus{\n  outline:none;\n}\n.ReactModal__Body--open{\n  overflow: hidden;\n}\n  .slider-indicator:first-child {\n    margin-left: 0;\n}\n\n.slider-indicator:last-child {\nmargin-right: 0;\n}\n\n.rc-drawer-content-wrapper{\n  width: 100% !important;\n}\n.rc-drawer-right .rc-drawer-content-wrapper{\n  display: flex;\n  justify-content: flex-end;\n}\n.rc-drawer-left .rc-drawer-content-wrapper{\n  display: flex;\n  justify-content: flex-start;\n}\n.ReactModal__Overlay{\n  z-index: 1051;\n}\n\nul li a{\n  display: block;\n}\n\n.mobile-menu div{\n  height: 1.5px;\n  width: 20px;\n  background-color: #000;\n  margin:4px 0;\n}\n.mobile-menu {\n  display: none;\n  cursor: pointer;\n}\n.header-row{\n  align-items:center;\n  justify-content: space-between;\n  display: flex;\n}\n@media only screen and (min-width: 200px) and (max-width: 550px)  {\n  .mobile-menu {\n    display: block;\n  }\n  .header-row{\n    width: 100% !important;\n  }\n  .display-block{\n    display: block;\n  }\n  .display-none{\n    display: none;\n  }\n  .common-row-list > ul{\n    padding-left: 10px;\n    padding-right: 10px;\n    flex-wrap: wrap;\n  }\n}\n.menu-close-icon {\n  position: absolute;\n  right: 16px;\n  top: 16px;\n}\n.menu-overlay{\n  width: 100%;\n  height: 100%;\n  background-color: #000;\n  opacity: 0.7;\n  position: fixed;\n  left: 0px;\n  top: 0px;\n}\n.close-line1{\n  transform: translate(0, 6px) rotate(-45deg) skewX(0) skewY(0) scaleX(1) scaleY(1);\n}\n.close-line2{\n  transform: translate(0, 0) rotate(45deg) skewX(0) skewY(0) scaleX(1) scaleY(1);\n}\n.common-row-list > ul{\n  display: flex;\n  flex-direction: row;\n  list-style-type: none;\n  flex-grow: 1;\n}\n\n.common-column-list > ul{\n  display: flex;\n  flex-direction: column;\n  list-style-type: none;\n}\n\n.common-column-list li{\n  width: 100%;\n}\n\n/* scroll */\n::-webkit-scrollbar {\n  width: 4px;\n  height: 4px;\n  background: transparent;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #6b6b6b;\n  border-radius: 10px;\n}"
+        }
+    ]
+}
