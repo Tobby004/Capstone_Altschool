@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBNosFHNVfv_hB-xAD3fSRCoF1O6DuotTo",
+  apiKey: "FIREBASE_API",
   authDomain: "scissor-capstone.firebaseapp.com",
   projectId: "scissor-capstone",
   storageBucket: "scissor-capstone.appspot.com",
