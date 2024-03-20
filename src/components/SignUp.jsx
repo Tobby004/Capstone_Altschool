@@ -1,9 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useNavigate } from 'react-router-dom'; // For navigation after signup
-// Ensure these imports match your project's structure
+import { useNavigate } from 'react-router-dom'; 
 import { Text, Button, Input, Img } from "../components/ui"; 
 import { auth } from "../firebaseConfig";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignupPage = () => {
   // State for form inputs
@@ -21,13 +21,14 @@ const handleSignup = async (e) => {
     return;
   }
   try {
-    const userCredential = await auth.createUserWithEmailAndPassword(
+    const auth = getAuth();
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
       email,
       password
     );
     const user = userCredential.user;
     console.log("User created:", user);
-    // Add any additional logic here, such as setting the user's username or navigating to a different page
   } catch (error) {
     console.error("Error creating user:", error);
     alert(error.message);
@@ -49,7 +50,6 @@ const handleSignup = async (e) => {
     Sign up with:
   </Text>
   <div className="flex flex-row justify-start w-[53%] gap-6">
-    {/* Facebook Button */}
     <Button
   size="xs"
   leftIcon={<Img src="/path/to/facebook_icon.svg" alt="Facebook" />}
@@ -66,41 +66,34 @@ const handleSignup = async (e) => {
 </Button>
   </div>
 </div>
- {/* Username Input */}
             <Input
               type="text"
               name="username"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              // Include necessary classes
             />
-            {/* Email Input */}
             <Input
               type="email"
               name="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              // Include necessary classes
             />
-            {/* Password Input */}
+         
             <Input
               type="password"
               name="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              // Include necessary classes
             />
-            {/* Confirm Password Input */}
             <Input
               type="password"
               name="confirmPassword"
               placeholder="Retype Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              // Include necessary classes
             />
             <Button type="submit" className="w-full">
               Sign up with Email

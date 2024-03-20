@@ -1,55 +1,91 @@
-// QRCodeGenerationPage.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Text, Input, Button } from 'components';
+import QRCode from 'qrcode.react';
 
-const QRCodeGenerationPage = () => {
-  const [longURL, setLongURL] = useState('');
-  const [qrCode, setQRCode] = useState('');
+const QRCodeGenerator = () => {
+  const [website, setWebsite] = useState('');
+  const [showQRCode, setShowQRCode] = useState(false);
 
-  const handleGenerateQRCode = async () => {
-    try {
-      const response = await fetch('https://api.example.com/generate-qr-code', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ originalURL: longURL }),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        setQRCode(result.qrCodeURL);
-      } else {
-        console.error('Failed to generate QR code');
-      }
-    } catch (error) {
-      console.error('Error occurred:', error);
+  const generateQRCode = () => {
+    if (website) {
+      setShowQRCode(true);
+    } else {
+      alert('Please enter a valid URL');
     }
   };
 
+  const downloadQRCode = () => {
+    if (website) {
+      const qrCodeDataURL = document.getElementById('qrcode').toDataURL();
+      const link = document.createElement('a');
+      link.href = qrCodeDataURL;
+      link.download = 'QRCode.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      alert('Please generate a QR code first');
+    }
+  };
+  
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <Text size="txtGilroySemiBold32">QR Code Generation</Text>
-      <Input
-        type="text"
-        placeholder="Enter your URL"
-        value={longURL}
-        onChange={(e) => setLongURL(e.target.value)}
-        className="mb-4"
-      />
-      <Button onClick={handleGenerateQRCode}>Generate QR Code</Button>
-      {qrCode && (
-        <div>
-          <p>QR Code:</p>
-          <img src={qrCode} alt="QR Code" />
-        </div>
-      )}
-      <Link to="/" className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">
-        Go back to Homepage
-      </Link>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+      <div className="container" style={{ maxWidth: '400px', padding: '20px', border: '0.5px solid #007bff', borderRadius: '5px' }}>
+        <input
+          type="text"
+          id="website"
+          placeholder="Enter website URL"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          style={{
+            width: '100%',
+            padding: '10px',
+            fontSize: '16px',
+            borderRadius: '5px',
+            border: '1px solid #ccc',
+            marginBottom: '10px',
+            boxSizing: 'border-box',
+          }}
+        />
+        <button
+          onClick={generateQRCode}
+          style={{
+            width: '100%',
+            padding: '10px',
+            fontSize: '16px',
+            backgroundColor: '#007bff',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s',
+          }}
+        >
+          Generate QR Code
+        </button>
+        {showQRCode && (
+          <div id="qrcode-container" style={{ textAlign: 'center', marginTop: '20px' }}>
+            <QRCode id="qrcode" value={website} style={{ margin: '0 auto' }} />
+            <br />
+            <button
+              onClick={downloadQRCode}
+              style={{
+                padding: '10px',
+                fontSize: '16px',
+                backgroundColor: '#007bff',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s',
+              }}
+            >
+              Download QR Code
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default QRCodeGenerationPage;
+export default QRCodeGenerator;

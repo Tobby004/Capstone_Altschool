@@ -1,4 +1,3 @@
-// AnalyticsPage.jsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Text } from 'components';
@@ -30,7 +29,7 @@ const AnalyticsPage = () => {
       <Text size="txtGilroySemiBold32">Analytics</Text>
       <p>Click Count: {clickCount}</p>
       <Link to="/" className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">
-        Go back to Homepage
+       Homepage
       </Link>
     </div>
   );

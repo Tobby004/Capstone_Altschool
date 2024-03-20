@@ -1,0 +1,34 @@
+const sqlite3 = require('sqlite3').verbose();
+
+// Connect to SQLite database
+const db = new sqlite3.Database('database.db', (err) => {
+  if (err) {
+    console.error('Error opening database:', err.message);
+  } else {
+    console.log('Connected to the database.');
+  }
+});
+
+// Example query to create a table
+db.run(`
+  CREATE TABLE IF NOT EXISTS urls (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    original_url TEXT NOT NULL,
+    shortened_url TEXT NOT NULL
+  )
+`, (err) => {
+  if (err) {
+    console.error('Error creating table:', err.message);
+  } else {
+    console.log('Table created successfully.');
+  }
+});
+
+// Close the database connection when done
+db.close((err) => {
+  if (err) {
+    console.error('Error closing database:', err.message);
+  } else {
+    console.log('Database connection closed.');
+  }
+});

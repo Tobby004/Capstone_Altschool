@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid blue;
+  padding: 20px;
+  border-radius: 5px;
+  width: 40%; /* Adjusted container width */
+  max-width: 600px; /* Maximum width for the container */
+  margin: auto;
+  margin-top: 50px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.button-container button {
+  margin-top: 10px;
+}
+.back-link {
+  display: block;
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+.input-field {
+  width: 100%;
+  margin-bottom: 20px;
+}

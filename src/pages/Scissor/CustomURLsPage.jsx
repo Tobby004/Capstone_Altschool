@@ -1,12 +1,15 @@
 // CustomURLsPage.jsx
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Text, Input, Button } from 'components';
+import './CustomURLsPage.css';
 
 const CustomURLsPage = () => {
   const [longURL, setLongURL] = useState('');
-  const [customURL, setCustomURL] = useState('');
+  const [customSlug, setCustomSlug] = useState('');
   const [customURLResult, setCustomURLResult] = useState('');
+  const [error, setError] = useState(null);
 
   const handleCreateCustomURL = async () => {
     try {
@@ -15,38 +18,44 @@ const CustomURLsPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ originalURL: longURL, customURL: customURL }),
+        body: JSON.stringify({ originalURL: longURL, customURL: customSlug }),
       });
 
       if (response.ok) {
         const result = await response.json();
         setCustomURLResult(result.customURL);
       } else {
-        console.error('Failed to create custom URL');
+        setError('Failed to create custom URL');
       }
     } catch (error) {
       console.error('Error occurred:', error);
+      setError('Failed to create custom URL');
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="container">
       <Text size="txtGilroySemiBold32">Custom URLs</Text>
-      <Input
-        type="text"
-        placeholder="Enter your URL"
-        value={longURL}
-        onChange={(e) => setLongURL(e.target.value)}
-        className="mb-4"
-      />
-      <Input
-        type="text"
-        placeholder="Enter custom URL"
-        value={customURL}
-        onChange={(e) => setCustomURL(e.target.value)}
-        className="mb-4"
-      />
-      <Button onClick={handleCreateCustomURL}>Create Custom URL</Button>
+      <div className="input-container">
+        <Input
+          type="text"
+          placeholder="Enter your URL"
+          value={longURL}
+          onChange={(e) => setLongURL(e.target.value)}
+          className="input-element"
+        />
+        <Input
+          type="text"
+          placeholder="Enter custom slug (optional)"
+          value={customSlug}
+          onChange={(e) => setCustomSlug(e.target.value)}
+          className="input-element"
+        />
+      </div>
+      <div className="button-container">
+        <Button onClick={handleCreateCustomURL}>Create Custom URL</Button>
+      </div>
+      {error && <p className="text-red-500">{error}</p>}
       {customURLResult && (
         <div>
           <p>Custom URL:</p>
@@ -55,9 +64,7 @@ const CustomURLsPage = () => {
           </a>
         </div>
       )}
-      <Link to="/" className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4">
-        Go back to Homepage
-      </Link>
+      <Link to="/" className="homepage-button">Homepage</Link>
     </div>
   );
 };

@@ -23,7 +23,6 @@ const dropdownOptionsList = [
 const ScissorPage = () => {
   const navigate = useNavigate();
 
-  // Define navigation handlers
   const handleSignupClick = () => navigate('/signup');
   const handleLoginClick = () => navigate('/login');
 

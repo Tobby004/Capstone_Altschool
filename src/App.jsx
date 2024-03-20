@@ -8,7 +8,6 @@ import AnalyticsPage from './pages/Scissor/AnalyticsPage';
 import LoginPage from './components/Login';
 import SignupPage from './components/SignUp'; 
 
-// App component
 const App = () => {
   return (
     <Router>

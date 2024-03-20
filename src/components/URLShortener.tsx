@@ -1,4 +1,3 @@
-// src/pages/URLShortenerForm.jsx or .tsx if using TypeScript
 import React, { useState } from 'react';
 
 const URLShortenerForm = () => {
@@ -8,10 +7,8 @@ const URLShortenerForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implement the logic to handle URL shortening with an optional custom slug
-    // This involves interacting with your backend or Firebase to store the URL
     console.log('Original URL:', originalUrl, 'Custom Slug:', customSlug);
-    // Set the shortenedUrl state with the response from the backend
+   
   };
 
   return (
