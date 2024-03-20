@@ -1,5 +1,3 @@
-// CustomURLsPage.jsx
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Text, Input, Button } from 'components';

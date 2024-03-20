@@ -6,8 +6,8 @@
   border: 0.5px solid blue;
   padding: 20px;
   border-radius: 5px;
-  width: 40%; /* Adjusted container width */
-  max-width: 600px; /* Maximum width for the container */
+  width: 40%; 
+  max-width: 600px; 
   margin: auto;
   margin-top: 50px;
 }
@@ -38,7 +38,7 @@
   text-decoration: none;
   color: blue;
   font-weight: bold;
-  margin-top: 10px; /* Adjust margin as needed */
+  margin-top: 10px; 
 }
 
 .back-link:hover {
