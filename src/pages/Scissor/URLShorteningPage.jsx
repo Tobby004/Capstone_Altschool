@@ -15,7 +15,7 @@ const URLShorteningPage = () => {
 
   const handleShortenURL = async () => {
     try {
-      const response = await fetch('https://api.example.com/shorten', {
+      const response = await fetch('https://api-ssl.bitly.com/v4/shorten', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
